@@ -43,7 +43,7 @@ export class EditUserComponent {
     role: ['Etudiant', [Validators.required]],
   });
 
-  roleList: string[] = ['Etudiant', 'Gestionnaire', 'Administrateur'];
+  roleList: string[] = ['Eleve', 'Admin'];
 
   userId?: number;
 
@@ -90,9 +90,9 @@ export class EditUserComponent {
   onAjoutUtilisateur() {
     if (this.formulaire.valid) {
       const url = this.userId
-        ? 'http://localhost/backend-angular-ticket-dw1-24/edit-user.php?id=' +
+        ? 'http://localhost/backend-angular-admin/edit-user.php?id=' +
           this.userId
-        : 'http://localhost/backend-angular-ticket-dw1-24/add-user.php';
+        : 'http://localhost/backend-angular-admin/add-user.php';
 
 
        const jwt = localStorage.getItem('jwt');

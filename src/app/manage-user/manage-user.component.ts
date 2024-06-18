@@ -50,14 +50,19 @@ export class ManageUserComponent {
       if (jwt) {
         this.html
           .delete(
-            'http://localhost/backend-angular-ticket-dw1-24/delete-user.php?id=' +
+            'http://localhost/backend-angular-admin/delete-user.php?id=' +
               idUtilisateur,
             { headers: { Authorization: jwt } }
           )
           .subscribe({
-            next: (result) => this.raffraichir(),
-            error: () =>
-              alert('Erreur inconnue, contactez votre administrateur'),
+            next: (result) => {
+              console.log('Suppression réussie:', result);
+              this.raffraichir();
+            },
+            error: (error) => {
+              console.error('Erreur lors de la suppression:', error);
+              alert('Erreur inconnue, contactez votre administrateur');
+            },
           });
       }
     }

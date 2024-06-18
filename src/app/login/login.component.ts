@@ -53,7 +53,7 @@ export class LoginComponent {
             duration: 3000,
           });
 
-          this.router.navigateByUrl('/accueil');
+          this.router.navigateByUrl('/gestion-utilisateurs');
         });
     }
   }
